@@ -134,7 +134,13 @@ resource "google_compute_region_instance_group_manager" "default" {
 
   update_strategy = "${var.update_strategy}"
 
-  rolling_update_policy = ["${var.rolling_update_policy}"]
+  rolling_update_policy {
+    type = "PROACTIVE"
+    minimal_action = "REPLACE"
+    max_surge_percent = 20
+    max_unavailable_fixed = 2
+    min_ready_sec = 50
+  }
 
   distribution_policy_zones = ["${var.distribution_policy_zones}"]
 
