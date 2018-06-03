@@ -73,6 +73,14 @@ resource "google_compute_instance_group_manager" "default" {
   zone = "${var.zone}"
 
   update_strategy = "${var.update_strategy}"
+  
+  rolling_update_policy {
+    type = "PROACTIVE"
+    minimal_action = "REPLACE"
+    max_surge_percent = 20
+    max_unavailable_fixed = 2
+    min_ready_sec = 50
+  }
 
   target_pools = ["${var.target_pools}"]
 
