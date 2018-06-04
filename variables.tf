@@ -60,7 +60,7 @@ variable size {
 
 variable startup_script {
   description = "Content of startup-script metadata passed to the instance template."
-  default     = "yum -y install cloud-init.x86_64 cloud-utils.x86_64"
+  default     = "yum -y install cloud-init.x86_64"
 }
 
 variable access_config {
