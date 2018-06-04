@@ -60,7 +60,7 @@ variable size {
 
 variable startup_script {
   description = "Content of startup-script metadata passed to the instance template."
-  default     = "yum -y install cloud-init.x86_64 ; /usr/bin/cloud-init modules init ; /usr/bin/cloud-init modules --mode=final"
+  default     = "setenforce 0 ; yum -y install cloud-init.x86_64 ; /usr/bin/cloud-init modules init ; /usr/bin/cloud-init modules --mode=final"
 }
 
 variable access_config {
